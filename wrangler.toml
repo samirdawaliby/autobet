@@ -1,13 +1,10 @@
 # Cloudflare Workers Configuration for AutoBet Scanner
 # https://developers.cloudflare.com/workers/
 
-name = "autobet-scanner"
+name = "autobet"
 main = "worker/main.py"
 compatibility_date = "2024-01-01"
-
-# Python Worker
-[build]
-command = "pip install -r requirements-worker.txt"
+compatibility_flags = ["python_workers"]
 
 # Environment variables (set via dashboard or wrangler secret)
 [vars]
@@ -20,17 +17,6 @@ SCAN_INTERVAL = "60"
 crons = [
     "*/1 * * * *",  # Every minute (adjust based on API limits)
 ]
-
-# KV Namespace for state storage
-[[kv_namespaces]]
-binding = "AUTOBET_KV"
-id = "YOUR_KV_NAMESPACE_ID"  # Replace after creating
-
-# D1 Database (SQLite)
-[[d1_databases]]
-binding = "AUTOBET_DB"
-database_name = "autobet"
-database_id = "YOUR_D1_DATABASE_ID"  # Replace after creating
 
 # Secrets (set via: wrangler secret put SECRET_NAME)
 # - ODDS_API_KEY
