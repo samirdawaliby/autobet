@@ -1,0 +1,2 @@
+# Minimal requirements for Cloudflare Worker
+# Note: Most dependencies are handled by the Cloudflare Python runtime
