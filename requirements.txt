@@ -1,0 +1,2 @@
+# No external dependencies needed for Cloudflare Workers Python runtime
+# The worker uses built-in js.fetch, js.Response, etc.
